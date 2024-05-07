@@ -14,3 +14,33 @@ var_num = 12
 let var_mix: string | number // either a string ot number
 var_mix = 123
 var_mix = 'abc'
+
+let var_loose_object: object; // this is a object with naything
+
+var_loose_object = {
+    name: 'max',
+    age: 34,
+    isAdmin: true,
+    id: 'abc'
+}
+
+var_loose_object = {
+    name: 'max',
+    age: 34,
+    isAdmin: true,
+}
+
+let var_strict_object: {
+    name: string;
+    age: number;
+    isAdmin: boolean;
+    id: string | number;
+};
+
+var_strict_object = {
+    name: 'max',
+    age: 34,
+    isAdmin: true,
+    id: 'abc'
+}
+
