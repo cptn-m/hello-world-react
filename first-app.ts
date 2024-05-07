@@ -110,7 +110,7 @@ login(creds) // no class
 login(new AuthCredentials()) //this is class
 
 
-// how can we merge two types? we need to use "&""
+// -- start: how can we merge two types? we need to use "&"" --
 type Type_Admin = {
     permission: string[];
 }
@@ -121,9 +121,10 @@ type Type_AppUser = {
 
 // this is now a union of two 
 type Type_AppAdmin = Type_Admin & Type_AppUser
+// -- end --
 
 
-// how can we merge two interfact? 
+//-- start: how can we merge two interfact? --
 // first we define the main interface contracts
 interface Admin {
     permissions:string[]
@@ -142,4 +143,10 @@ admin = {
     permissions: ['read', 'write'],
     userName: 'mary'
 }
+//-- end --
 
+// -- start: how can we define a list of valid values --
+let role: 'admin' | 'read-only' | 'read-write';
+// role = 'test'; this is invalid because test is not part of the type role
+role = 'admin';
+// -- end --
