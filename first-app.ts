@@ -77,3 +77,69 @@ function my_calc(
 }
 
 my_calc(2,5,my_add)
+
+// const == forced key value
+
+// lets define and object with the following pattern note here we use the word interface rather than type
+// note you can redefine interface declaration merging without extra work and error of redeclaring a variable
+interface Credentials {
+    email: string
+    password: string;// for creatting objects
+}
+
+let creds: Credentials;
+
+creds = {
+    email: 'test@a.a',
+    password: 'password'
+}
+
+// here the class AuthCredentials uses the contract Credentials that was defined above
+class AuthCredentials implements Credentials {
+    email: string;
+    password: string;
+}
+
+
+// lets create a log in function that uses the defined credentials
+function login(credentials: Credentials) {
+
+}
+
+login(creds) // no class
+login(new AuthCredentials()) //this is class
+
+
+// how can we merge two types? we need to use "&""
+type Type_Admin = {
+    permission: string[];
+}
+
+type Type_AppUser = {
+    userName: string;
+}
+
+// this is now a union of two 
+type Type_AppAdmin = Type_Admin & Type_AppUser
+
+
+// how can we merge two interfact? 
+// first we define the main interface contracts
+interface Admin {
+    permissions:string[]
+}
+interface AppUser {
+    userName: string;
+}
+// now we combin the interface contracts
+interface AppAdmin extends Admin, AppUser{}
+
+// now lets declare the contract of admin
+let admin: AppAdmin;
+
+// now lets define admin
+admin = {
+    permissions: ['read', 'write'],
+    userName: 'mary'
+}
+
