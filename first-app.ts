@@ -162,18 +162,18 @@ function performAction (action: string, role: role) {
 
 // -- start: what to do with the log in function if the user has the value User or Admin --
 // create the interface of user
-interface User {
+interface User_App {
     name: string;
     userType: string;
 }
 
-interface Admin {
+interface Admin_App {
     name: string;
     age: number;
     permission: string[];
 }
 
-function login (u:User | Admin) {
+function login_App (u:User_App | Admin_App) {
     if ('permission' in u) {
         // do something
     }
