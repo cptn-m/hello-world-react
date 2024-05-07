@@ -44,3 +44,5 @@ var_strict_object = {
     id: 'abc'
 }
 
+let var_array_str: Array<string>; // needs the related value types
+let var_alt_array_str: string[] // this is the shortcut and more commonly used
