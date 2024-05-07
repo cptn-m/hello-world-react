@@ -146,9 +146,10 @@ admin = {
 //-- end --
 
 // -- start: how can we define a list of valid values --
-type role: 'admin' | 'read-only' | 'read-write';
+type role = 'admin' | 'read-only' | 'read-write';
 // role = 'test'; this is invalid because test is not part of the type role
-let role = 'admin';
+let role: 'admin';
+role = 'admin'
 // -- end --
 
 // -- start: how to execute a function when the value is X
@@ -158,3 +159,22 @@ function performAction (action: string, role: role) {
     }
 }
 // -- end --
+
+// -- start: what to do with the log in function if the user has the value User or Admin --
+// create the interface of user
+interface User {
+    name: string;
+    userType: string;
+}
+
+interface Admin {
+    name: string;
+    age: number;
+    permission: string[];
+}
+
+function login (u:User | Admin) {
+    if ('permission' in u) {
+        // do something
+    }
+}
