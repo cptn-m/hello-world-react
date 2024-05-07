@@ -146,7 +146,15 @@ admin = {
 //-- end --
 
 // -- start: how can we define a list of valid values --
-let role: 'admin' | 'read-only' | 'read-write';
+type role: 'admin' | 'read-only' | 'read-write';
 // role = 'test'; this is invalid because test is not part of the type role
-role = 'admin';
+let role = 'admin';
+// -- end --
+
+// -- start: how to execute a function when the value is X
+function performAction (action: string, role: role) {
+    if (role === 'admin' && typeof action ==='string') {
+        // function when role = admin and the action = 'string'
+    }
+}
 // -- end --
