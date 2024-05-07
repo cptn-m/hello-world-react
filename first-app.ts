@@ -10,3 +10,7 @@ let var_num = 11;
 var_str = 'this is a string'
 var_boolean = true
 var_num = 12 
+
+let var_mix: string | number // either a string ot number
+var_mix = 123
+var_mix = 'abc'
