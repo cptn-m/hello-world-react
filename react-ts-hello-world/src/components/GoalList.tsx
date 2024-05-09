@@ -2,15 +2,16 @@ import Goals from './Goals.tsx';;
 import { type Goal } from '../App.tsx';
 
 type GoalsProps = {
-    goals:Goal[]
+    goals:Goal[];
+    onDeleteGoal: (id:number)=>void;
 }
 
-export default function GoalList({goals}:GoalsProps ) {
+export default function GoalList({goals, onDeleteGoal}:GoalsProps ) {
     return (
         <ul>
             {goals.map((goal) => (
               <li key = {goal.id}>
-                <Goals title = {goal.title}> 
+                <Goals id = {goal.id} title = {goal.title} onDelete={onDeleteGoal}> 
                 <p> {goal.description} </p>
                 </Goals> 
               </li>
