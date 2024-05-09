@@ -1,19 +1,19 @@
-import CourseGoal from "./components/CourseGoals.tsx";
+import CourseGoalList from './components/GoalList.tsx'
 import Header from "./components/Header.tsx";
 import { useState } from 'react'
 
-interface UserGoal {
+export interface Goal {
   title: string;
   description: string;
   id: number;
 }
 
 export default function App() {
-  const [goals, setGoals]  = useState <UserGoal[]>([]);
+  const [goals, setGoals]  = useState <Goal[]>([]);
 
   function handleAddGoal() {
     setGoals((prevGoals) => { // syntax if current state depends on the previous state 
-      const newGoal: UserGoal  = {
+      const newGoal: Goal  = {
         title: 'user input title',
         description: 'user input desc',
         id: Math.random(),
@@ -30,15 +30,7 @@ export default function App() {
         <h1> Your Course Goals </h1>
       </Header>
       <button onClick = {handleAddGoal}> Add Goal </button>
-      <ul>
-        {goals.map((UserGoal) => (
-          <li key = {UserGoal.id}>
-            <CourseGoal title = {UserGoal.title}> 
-              <p> {UserGoal.description} </p>
-            </CourseGoal> 
-          </li>
-        ))}
-      </ul>
+      <CourseGoalList goals = {goals}/>
     </main>
   );
 }

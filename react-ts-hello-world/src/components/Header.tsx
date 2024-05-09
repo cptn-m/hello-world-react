@@ -1,6 +1,6 @@
 import { type ReactNode } from "react"
 
-interface imgProp{
+interface ImgProp{
     image: {
         src: string;
         alt: string;
@@ -8,7 +8,7 @@ interface imgProp{
     children: ReactNode;
 }
 
-export default function Header({image, children}: imgProp)
+export default function Header({image, children}: ImgProp)
 {
     return <header>
         <div>
