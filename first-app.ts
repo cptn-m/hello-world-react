@@ -178,3 +178,6 @@ function login_App (u:User_App | Admin_App) {
         // do something
     }
 }
+
+// compiler npx tsc filename
+// compiler is part of the react project and build pipeline
