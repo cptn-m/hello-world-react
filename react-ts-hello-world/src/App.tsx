@@ -1,6 +1,7 @@
 import GoalList from './components/GoalList.tsx';
 import Header from "./components/Header.tsx";
 import { useState } from 'react'
+import NewGoal from './components/NewGoal.tsx';
 
 export interface Goal {
   title: string;
@@ -11,11 +12,11 @@ export interface Goal {
 export default function App() {
   const [goals, setGoals] = useState<Goal[]>([]);
 
-  function handleAddGoal() {
+  function handleAddGoal(goal: string, summary: string) {
     setGoals((prevGoals) => {
       const newGoal: Goal = {
-        title: 'user input title',
-        description: 'user input desc',
+        title: goal,
+        description: summary,
         id: Math.random(),
       };
       return [...prevGoals, newGoal];
@@ -35,7 +36,8 @@ export default function App() {
       }}>
         <h1> Your Course Goals </h1>
       </Header>
-      <button onClick={handleAddGoal}> Add Goal </button>
+      <NewGoal onAddGoal={handleAddGoal}/>
+      {/* <button onClick={handleAddGoal}> Add Goal </button> */}
       {/* Corrected the prop name from onDeleteGoal to onDelete */}
       <GoalList goals={goals} onDeleteGoal={handleDeleteGoal} />
     </main>
