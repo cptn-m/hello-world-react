@@ -17,3 +17,6 @@ export default function Header({image, children}: ImgProp)
         </div>
     </header>
 }
+
+// we can use {... image} instead of src = {image.src} and alt = {image.alt}. 
+// This is a react short cut to call all the properties in the image
